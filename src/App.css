@@ -1,6 +1,17 @@
 /* App.css */
 .canvas-container {
-  width: 100vw;
+  width: 50%;
   height: 100vh;
   overflow: hidden;
+}
+
+/* ThreeDModelViewer.css */
+.viewer-container {
+  position: fixed;
+
+  width: 50%; /* Adjust width as needed */
+  height: 80%; /* Adjust height as needed */
+  overflow: hidden;
+  border: 1px solid #ccc; /* Optional border */
+  background-color: #fff; /* Optional background color */
 }
