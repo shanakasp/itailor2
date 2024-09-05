@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import ThreeDModelViewer from "./Model";
+import ThreeDModelViewer from "./Canvas";
 
 const App = () => {
   const modelPath = "/jacket.glb";
