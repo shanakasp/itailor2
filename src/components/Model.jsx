@@ -1,39 +1,9 @@
 import { useGLTF } from "@react-three/drei";
-import React, { useEffect, useRef } from "react";
-import { MeshStandardMaterial } from "three";
+import React, { useRef } from "react";
 
 export function Model({ unchangedMaterials, ...props }) {
   const { nodes, materials } = useGLTF("/jacket.glb");
   const groupRef = useRef();
-
-  // Define colors
-  const colorCloth001 = "#FF0000"; // Red
-  const colorCloth002 = "#00FF00"; // Green
-
-  useEffect(() => {
-    if (groupRef.current) {
-      groupRef.current.traverse((child) => {
-        if (child.isMesh) {
-          const materialName = child.material.name;
-
-          // Check if the material is in the list of unchanged materials
-          if (!unchangedMaterials.includes(materialName)) {
-            if (materialName === "Cotton_Heavy_Twill_FRONT_230413.004") {
-              child.material = new MeshStandardMaterial({
-                color: colorCloth001,
-              });
-            } else if (
-              materialName === "Cotton_Heavy_Twill Copy 1_FRONT_230423.002"
-            ) {
-              child.material = new MeshStandardMaterial({
-                color: colorCloth002,
-              });
-            }
-          }
-        }
-      });
-    }
-  }, [unchangedMaterials]);
 
   return (
     <group {...props} dispose={null}>
@@ -45,13 +15,13 @@ export function Model({ unchangedMaterials, ...props }) {
       />
       <mesh
         geometry={nodes.Cloth001.geometry}
-        material={new MeshStandardMaterial({ color: colorCloth001 })}
+        material={materials["Cotton_Heavy_Twill_FRONT_230413.004"]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.001}
       />
       <mesh
         geometry={nodes.Cloth002.geometry}
-        material={new MeshStandardMaterial({ color: colorCloth002 })}
+        material={materials["Cotton_Heavy_Twill_FRONT_230413.004"]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.001}
       />

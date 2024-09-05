@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Model } from "./components/Model";
 
 const ThreeDModelViewer = ({ modelPath }) => {
-  const [color, setColor] = useState("#ff0000"); // Default color
+  const [color, setColor] = useState("#21E25B"); // Default color
 
   const handleColorChange = (event) => {
     setColor(event.target.value); // Update color based on input
@@ -12,7 +12,6 @@ const ThreeDModelViewer = ({ modelPath }) => {
 
   // List of material names that should not change color
   const unchangedMaterials = [
-    "Object",
     "Object.009",
     "Object.008",
     "Object.007",
